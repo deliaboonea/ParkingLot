@@ -28,4 +28,12 @@ public class Car {
     public Long getId() {
         return id;
     }
+
+    public Object getLicensePlate() {
+        return null;
+    }
+
+    public Object getParkingSpot() {
+        return null;
+    }
 }
