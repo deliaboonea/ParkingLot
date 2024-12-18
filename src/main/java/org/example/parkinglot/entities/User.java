@@ -2,34 +2,24 @@ package org.example.parkinglot.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Collection;
-
 @Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String email;
+    private String password;
+    private String username;
 
-    @Id
-    @GeneratedValue
     public Long getId() {
         return id;
     }
 
-    private String username;
-
-    @Basic
-    public String getUsername() {
-        return username;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    private String email;
 
     public String getEmail() {
         return email;
@@ -39,8 +29,6 @@ public class User {
         this.email = email;
     }
 
-    private String password;
-
     public String getPassword() {
         return password;
     }
@@ -49,14 +37,11 @@ public class User {
         this.password = password;
     }
 
-    private Collection<Car> cars;
-
-    @OneToMany(mappedBy = "owner")
-    public Collection<Car> getCars() {
-        return cars;
+    public String getUsername() {
+        return username;
     }
 
-    public void setCars(Collection<Car> cars) {
-        this.cars = cars;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
