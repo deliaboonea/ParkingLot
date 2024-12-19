@@ -1,11 +1,9 @@
 package org.example.parkinglot.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "car")
 public class Car {
     @ManyToOne
     private User owner;

@@ -1,18 +1,19 @@
 package org.example.parkinglot.entities;
 
 import jakarta.persistence.*;
+import java.util.Collections;
 
 @Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
+public class User {
+
+    private Long id;
     private String email;
     private String password;
     private String username;
 
+    @Id
+    @GeneratedValue
     public Long getId() {
         return id;
     }
@@ -37,6 +38,7 @@ public class User {
         this.password = password;
     }
 
+    @Basic
     public String getUsername() {
         return username;
     }
