@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <t:pageTemplate pageTitle="Cars">
     <h1>Cars</h1>
+    <a class="btn btn-primary" href="${pageContext.request.contextPath}/AddCar">Add Car</a>
     <div class="container text-center">
     <c:forEach var="car" items="${cars}">
         <div class="row">

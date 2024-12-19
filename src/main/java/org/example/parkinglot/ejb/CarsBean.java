@@ -7,6 +7,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.example.parkinglot.common.CarDto;
 import org.example.parkinglot.entities.Car;
+import org.example.parkinglot.entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,5 +42,19 @@ public class CarsBean {
             list.add(temp);
         }
         return list;
+    }
+
+    public void createCar(String licensePlate, String parkingSpot, Long userId) {
+        LOGGER.info("createCar");
+
+        Car car = new Car();
+        car.setLicensePlate(licensePlate);
+        car.setParkingSpot(parkingSpot);
+
+        User user = entityManager.find(User.class, userId);
+        user.getCars().add(car);
+        car.setOwner(user);
+
+        entityManager.persist(car);
     }
 }

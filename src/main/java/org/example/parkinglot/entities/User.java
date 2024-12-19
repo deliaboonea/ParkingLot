@@ -1,19 +1,24 @@
 package org.example.parkinglot.entities;
 
 import jakarta.persistence.*;
+
+import java.util.Collection;
 import java.util.Collections;
 
 @Entity
 
 public class User {
 
-    private Long id;
+
     private String email;
     private String password;
     private String username;
+    @OneToMany(mappedBy = "owner")
+    private Collection<Car> cars;
 
     @Id
     @GeneratedValue
+    private Long id;
     public Long getId() {
         return id;
     }
@@ -45,5 +50,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+
+    public Collection<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(Collection<Car> cars) {
+        this.cars = cars;
     }
 }
